@@ -7,11 +7,11 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
-// const cors = require("cors");
+const cors = require("cors");
 
-const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'http://localhost:3000';
+const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'null';
 
-const auth = require('./routes/auth');
+const users = require('./routes/users');
 // const trip = require('./routes/trip');
 
 const app = express();
@@ -40,15 +40,15 @@ app.use(session({
   }
 }));
 
-// app.use(
-//   cors({
-//     origin: CLIENT_URL,
-//     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
-//     credentials: true
-//   })
-// );
+app.use(
+  cors({
+    origin: CLIENT_URL,
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+    credentials: true
+  })
+);
 
-app.use('/api/auth', auth);
+app.use('/api/users', users);
 // app.use('/api/trip', trip);
 
 // catch 404 and forward to error handler
@@ -61,7 +61,6 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  console.log(err.message, err.status);
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
