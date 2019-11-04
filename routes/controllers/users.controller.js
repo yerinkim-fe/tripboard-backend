@@ -2,7 +2,7 @@ const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-exports.create = async function (req, res, next) {
+exports.createUser = async function (req, res, next) {
   const { email, name, password } = req.body;
 
   try {
@@ -45,13 +45,14 @@ exports.getUser = async function (req, res, next) {
       _id: user_id
     });
 
-    const { email, name } = user;
+    const { _id, email, name } = user;
 
     res.status(200).json({
+      _id,
       email,
       name
     });
-  } catch {
+  } catch (error) {
     next(error);
   }
 };

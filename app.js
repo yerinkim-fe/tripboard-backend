@@ -12,7 +12,7 @@ const cors = require("cors");
 const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'null';
 
 const users = require('./routes/users');
-// const trip = require('./routes/trip');
+const trips = require('./routes/trips');
 
 const app = express();
 
@@ -49,7 +49,7 @@ app.use(
 );
 
 app.use('/api/users', users);
-// app.use('/api/trip', trip);
+app.use('/api/trips', trips);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
