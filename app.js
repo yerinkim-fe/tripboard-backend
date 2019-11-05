@@ -28,17 +28,17 @@ const db = mongoose.connection;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(session({
-  resave: false,
-  saveUninitialized: false,
-  secret: process.env.COOKIE_SECRET,
-  cookie: {
-    httpOnly: true,
-    secure: false,
-    maxAge: 24000 * 60 * 60 * 7
-  }
-}));
+// app.use(cookieParser(process.env.COOKIE_SECRET));
+// app.use(session({
+//   resave: false,
+//   saveUninitialized: false,
+//   secret: process.env.COOKIE_SECRET,
+//   cookie: {
+//     httpOnly: true,
+//     secure: false,
+//     maxAge: 24000 * 60 * 60 * 7
+//   }
+// }));
 
 app.use(
   cors({
