@@ -20,6 +20,6 @@ const storage = multerS3({
   }
 })
 
-const upload = multer({ storage }).array('photos', 12);
+const upload = multer({ storage }).array('photos', 10);
 
 module.exports = upload;

@@ -47,6 +47,22 @@ exports.getTrip = async function (req, res, next) {
   }
 };
 
+exports.getTripDetail = async function (req, res, next) {
+  const { trip_id } = req.params;
+
+  try {
+    const trip = await Trip.findOne({
+      _id: trip_id
+    });
+
+    res.status(200).json({
+      trip
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.uploadFile = async function (req, res, next) {
   upload(req, res, function(err) {
     if (err instanceof multer.MulterError) {
