@@ -20,11 +20,11 @@ const tripSchema = new mongoose.Schema({
   address: {
     country: {
       type: String,
-      required: true
+      // required: true
     },
     city: {
       type: String,
-      required: true
+      // required: true
     }
   },
   sdate: {
