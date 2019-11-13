@@ -36,23 +36,3 @@ exports.getToken = async function (req, res, next) {
     next(error);
   }
 };
-
-// exports.getUser = async function (req, res, next) {
-//   const { user_id } = req.auth;
-
-//   try {
-//     const user = await User.findOne({
-//       _id: user_id
-//     });
-
-//     const { _id, email, name } = user;
-
-//     res.status(200).json({
-//       _id,
-//       email,
-//       name
-//     });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
