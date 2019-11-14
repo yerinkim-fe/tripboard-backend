@@ -34,9 +34,9 @@ jobs:
           name: Deploy to env
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                eb deploy sample
+                eb deploy TripboardBackend-env
             else
-                eb deploy sample-development
+                eb deploy TripboardBackend-env-development
             fi
 workflows:
   version: 2

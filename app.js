@@ -4,9 +4,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const session = require('express-session');
 const cors = require("cors");
 
 const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'null';
@@ -28,17 +26,6 @@ const db = mongoose.connection;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser(process.env.COOKIE_SECRET));
-// app.use(session({
-//   resave: false,
-//   saveUninitialized: false,
-//   secret: process.env.COOKIE_SECRET,
-//   cookie: {
-//     httpOnly: true,
-//     secure: false,
-//     maxAge: 24000 * 60 * 60 * 7
-//   }
-// }));
 
 app.use(
   cors({
