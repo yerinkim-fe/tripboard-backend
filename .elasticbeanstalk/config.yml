@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: TripboardBackend-env
+    environment: TripboardBackend
 environment-defaults:
   Backend-env:
     branch: null
