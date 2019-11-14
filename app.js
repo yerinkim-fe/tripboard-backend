@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const cors = require("cors");
 
-const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'null';
+const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'http://tripboardbackend.nr3apggekj.ap-northeast-2.elasticbeanstalk.com';
 
 const users = require('./routes/users');
 const trips = require('./routes/trips');
