@@ -2,7 +2,7 @@ branch-defaults:
   master:
     environment: TripboardBackend
 environment-defaults:
-  Backend-env:
+  TripboardBackend:
     branch: null
     repository: null
 global:
