@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const cors = require("cors");
 
-const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'https://tripboard.yerinsite.com/';
+const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'https://tripboard.yerinsite.com';
 
 const users = require('./routes/users');
 const trips = require('./routes/trips');
