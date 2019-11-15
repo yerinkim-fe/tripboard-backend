@@ -6,6 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const cors = require("cors");
+const bodyParser = require('body-parser');
 
 const CLIENT_URL = (process.env.NODE_ENV === 'development') ? 'http://localhost:3000' : 'https://tripboard.yerinsite.com';
 
@@ -23,6 +24,7 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 const db = mongoose.connection;
 
+app.use(bodyParser.json({ limit: '5mb' }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
