@@ -16,3 +16,4 @@ router.get('/:user_id/trips', verifyToken, tripsController.getTrip);
 
 
 module.exports = router;
+// test
